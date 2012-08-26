@@ -11,7 +11,7 @@ task :install  do
 			overwrite = false
 
 			unless overwrite || overwrite_all
-				puts "File '.#{file}' already exist. Overwrite this file? [y]es / [n]o / overwite [all]"
+				puts "THe file '.#{file}' already exist. Overwrite this file? [y]es / [n]o / overwite [all]"
 				case STDIN.gets.chomp
 					when 'y' then overwrite = true
 					when 'n' then overwrite = false
