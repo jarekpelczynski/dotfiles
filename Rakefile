@@ -1,5 +1,5 @@
 desc "Copy dotfiles to you home directory"
-task :install  do
+task :install => :backup do
 	overwrite_all = false
 
 	files = Dir.glob('*/**')
@@ -23,5 +23,18 @@ task :install  do
 		`cp "$PWD/#{path}" "#{target}"`
 	end
 end
+
+desc "Create a backup of your dotfiles"
+task :backup do
+	files = Dir.glob('*/**')
+	files.each do |path|
+		file = path.split('/').last
+		target = "#{ENV["HOME"]}/.#{file}"
+
+		`cp "#{target}"	"#{target}".backup`
+	end
+	puts "Backups created"
+end
+
 
 task :default => ["install"]
