@@ -460,13 +460,16 @@ defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
 defaults write com.apple.DiskUtility advanced-image-options -bool true
 
+# Disable Notification Center
+defaults write com.apple.notificationcenterui KeepAlive -bool false
+
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
 
 for app in "Address Book" "Calendar" "Contacts" "Dock" "Finder" "Mail" \
 	"Safari" "SizeUp" "SystemUIServer" "Terminal" "Transmission" "Twitter" \
-	"iCal" "iTunes"; do
+	"iCal" "iTunes" "NotificationCenter"; do
 	killall "$app" > /dev/null 2>&1
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."
