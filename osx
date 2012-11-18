@@ -461,7 +461,7 @@ defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
 defaults write com.apple.DiskUtility advanced-image-options -bool true
 
 # Disable Notification Center
-defaults write com.apple.notificationcenterui KeepAlive -bool false
+#defaults write com.apple.notificationcenterui KeepAlive -bool false
 
 ###############################################################################
 # Kill affected applications                                                  #
